@@ -1,0 +1,60 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a2e;
+  --muted: #555;
+  --accent: #4f46e5;       /* indigo, matching the docs palette */
+  --accent-fg: #ffffff;
+  --card: #f5f5fb;
+  --border: #e2e2ef;
+  --code-bg: #1e1e2e;
+  --code-fg: #e6e6f0;
+  --maxw: 1080px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14141f; --fg: #e8e8f0; --muted: #a6a6b8;
+    --accent: #8b85f0; --card: #1d1d2b; --border: #2a2a3c;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+a { color: var(--accent); }
+section { padding: 4rem 1.5rem; }
+section > .wrap { max-width: var(--maxw); margin: 0 auto; }
+h1, h2 { line-height: 1.2; }
+h2 { font-size: 1.9rem; margin: 0 0 2rem; }
+.btn {
+  display: inline-block; padding: .7rem 1.3rem; border-radius: 8px;
+  text-decoration: none; font-weight: 600; border: 1px solid var(--accent);
+}
+.btn-primary { background: var(--accent); color: var(--accent-fg); }
+.btn-ghost { color: var(--accent); }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.25rem; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+.card h3 { margin: 0 0 .5rem; font-size: 1.1rem; }
+.card p { margin: 0; color: var(--muted); }
+pre, code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+pre {
+  background: var(--code-bg); color: var(--code-fg); padding: 1rem 1.2rem;
+  border-radius: 10px; overflow-x: auto;
+}
+.copyrow { display: flex; gap: .5rem; align-items: stretch; max-width: 640px; }
+.copyrow pre { flex: 1; margin: 0; }
+.copyrow button {
+  border: 1px solid var(--border); background: var(--card); color: var(--fg);
+  border-radius: 8px; padding: 0 1rem; cursor: pointer; font-weight: 600;
+}
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid var(--border); padding: .6rem .8rem; text-align: left; vertical-align: top; }
+th { background: var(--card); }
+footer { padding: 3rem 1.5rem; border-top: 1px solid var(--border); color: var(--muted); }
+footer .wrap { max-width: var(--maxw); margin: 0 auto; display: flex; flex-wrap: wrap; gap: 1rem 2rem; justify-content: space-between; }
+.brand-dark { display: none; }
+@media (prefers-color-scheme: dark) {
+  .brand-light { display: none; }
+  .brand-dark { display: inline; }
+}
