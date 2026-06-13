@@ -1,20 +1,32 @@
-<section id="hero">
-  <div class="wrap">
-    <img class="brand-light" src="/img/banner-light.svg" alt="Otherix" width="640" height="240">
-    <img class="brand-dark" src="/img/banner-dark.svg" alt="Otherix" width="640" height="240">
-    <p style="font-size:1.25rem;max-width:680px;color:var(--muted)">
-      {{ .Site.Params.description }} Run VMs on a fleet of bare-metal KVM/QEMU
-      nodes with a declarative API, generation/observed-generation bookkeeping,
-      and reconciliation loops - the Kubernetes pattern applied to long-lived,
-      stateful VMs.
-    </p>
-    <div class="copyrow">
-      <pre>{{ .Site.Params.installCmd }}</pre>
-      <button type="button" data-copy>copy</button>
-    </div>
-    <p style="margin-top:1.5rem">
-      <a class="btn btn-primary" href="{{ .Site.Params.docsURL }}">Read the docs</a>
-      <a class="btn btn-ghost" href="{{ .Site.Params.githubURL }}">GitHub</a>
-    </p>
-  </div>
-</section>
+<header id="top" style="position:relative;border-bottom:1px solid rgba(180,190,196,0.07);">
+  <div style="position:absolute;inset:0;background:radial-gradient(900px 420px at 78% -8%,rgba(88,204,194,0.08),transparent 60%);pointer-events:none;"></div>
+  <div class="ox-wrap" style="position:relative;padding-top:88px;padding-bottom:80px;display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:56px;align-items:center;">
+    <!-- left -->
+    <div>
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:5px 11px;border:1px solid rgba(180,190,196,0.16);border-radius:9999px;margin-bottom:26px;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#82d99a;"></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;color:#9aa4ab;">open-source &middot; self-hosted &middot; Apache 2.0</span>
+      </div>
+      <h1 style="font-size:clamp(40px,5.4vw,62px);line-height:1.04;font-weight:700;letter-spacing:-2px;margin:0 0 22px;color:#eef1f2;text-wrap:balance;">Self-hosted VM orchestration, the Kubernetes way</h1>
+      <p style="font-size:19px;line-height:1.62;color:#9aa4ab;margin:0 0 34px;max-width:520px;">A control plane for KVM/QEMU clusters with a declarative API, reconciliation loops and embedded etcd &mdash; engineered for long-lived, stateful VMs, not disposable containers.</p>
+      <div style="display:flex;gap:13px;flex-wrap:wrap;align-items:center;">
+        <a class="ox-btn ox-btn-primary" href="#quickstart" style="font-size:15px;padding:13px 24px;">Get started</a>
+        <a class="ox-btn ox-btn-ghost" href="{{ .Site.Params.githubURL }}" style="font-size:15px;padding:13px 22px;">View on GitHub <span style="color:#6c757c;">&#8599;</span></a>
+      </div>
+      <div style="margin-top:22px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#16191c;border:1px solid rgba(180,190,196,0.14);border-radius:8px;padding:10px 12px;max-width:520px;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#58ccc2;">$</span>
+        <code id="install-cmd" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#cdd5da;flex:1;min-width:0;overflow-x:auto;white-space:nowrap;">{{ .Site.Params.installCmd }}</code>
+        <button class="ox-copybtn" type="button" data-copy="#install-cmd">copy</button>
+      </div></div>
+    <!-- right: terminal -->
+    <div style="background:#16191c;border:1px solid rgba(180,190,196,0.14);border-radius:12px;overflow:hidden;box-shadow:0 30px 80px -30px rgba(0,0,0,0.6);">
+      <div style="display:flex;align-items:center;gap:8px;padding:11px 15px;border-bottom:1px solid rgba(180,190,196,0.08);">
+        <span style="width:11px;height:11px;border-radius:50%;background:#3a4248;"></span>
+        <span style="width:11px;height:11px;border-radius:50%;background:#3a4248;"></span>
+        <span style="width:11px;height:11px;border-radius:50%;background:#3a4248;"></span>
+        <span style="margin-left:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#6c757c;">otherix &mdash; dev cluster</span>
+      </div>
+      <div style="padding:18px 18px 20px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.85;white-space:pre;overflow-x:auto;"><div><span style="color:#58ccc2;">$</span> <span style="color:#eef1f2;">make local-dev-start</span></div><div><span style="color:#74b6e8;">&gt;&gt;</span> <span style="color:#9aa4ab;">Step 1/8 &middot; pre-flight ports       </span> <span style="color:#82d99a;">&#10003;</span> <span style="color:#5f6b72;">topology clear</span></div><div><span style="color:#74b6e8;">&gt;&gt;</span> <span style="color:#9aa4ab;">Step 2/8 &middot; build api + agent + cli</span></div><div><span style="color:#74b6e8;">&gt;&gt;</span> <span style="color:#9aa4ab;">Step 3/8 &middot; stage Lima VMs         </span> <span style="color:#5f6b72;">otherix-dev-1 &middot; otherix-dev-2</span></div><div><span style="color:#74b6e8;">&gt;&gt;</span> <span style="color:#9aa4ab;">Step 5/8 &middot; start otherix-api      </span> <span style="color:#5f6b72;">PID 94084</span></div><div><span style="color:#74b6e8;">&gt;&gt;</span> <span style="color:#9aa4ab;">Step 6/8 &middot; wait for CP /healthz   </span> <span style="color:#82d99a;">&#10003;</span> <span style="color:#74b6e8;">http://localhost:8080</span></div><div><span style="color:#74b6e8;">&gt;&gt;</span> <span style="color:#9aa4ab;">Step 7/8 &middot; bootstrap agents (mTLS)</span> node-1 <span style="color:#82d99a;">&#10003;</span>  node-2 <span style="color:#82d99a;">&#10003;</span></div><div><span style="color:#74b6e8;">&gt;&gt;</span> <span style="color:#9aa4ab;">Step 8/8 &middot; final sanity</span></div><div style="height:12px;"></div>
+<div style="color:#82d99a;font-weight:600;">&gt;&gt; local-dev-start complete</div><div>   <span style="color:#9aa4ab;">etcd data </span> <span style="color:#5f6b72;">:</span> <span style="color:#82d99a;">~/otherix</span><span style="color:#cdd5da;">/.local/etcd</span> <span style="color:#5f6b72;">(embedded member)</span></div><div>   <span style="color:#9aa4ab;">api-server</span> <span style="color:#5f6b72;">:</span> <span style="color:#74b6e8;">http://localhost:8080</span> <span style="color:#5f6b72;">(PID 94084)</span></div><div>   <span style="color:#9aa4ab;">Lima VMs  </span> <span style="color:#5f6b72;">:</span> <span style="color:#cdd5da;">otherix-dev-1 (node-1) &middot; otherix-dev-2 (node-2)</span></div><div>   <span style="color:#9aa4ab;">CLI       </span> <span style="color:#5f6b72;">:</span> <span style="color:#82d99a;">~/otherix</span><span style="color:#cdd5da;">/bin/otherix</span> <span style="color:#5f6b72;">(cluster: dev)</span></div><div style="height:12px;"></div><div><span style="color:#58ccc2;">$</span> <span style="color:#eef1f2;">./bin/otherix node list</span></div><div><span style="color:#5f6b72;">NAME    ARCH   STATUS  CORDONED  AGE</span></div><div>node-1  arm64  <span style="color:#82d99a;">ready</span>   no        5m</div><div>node-2  arm64  <span style="color:#82d99a;">ready</span>   no        5m<span style="display:inline-block;width:8px;height:15px;background:#58ccc2;margin-left:8px;vertical-align:-2px;animation:ox-blink 1.1s steps(1) infinite;"></span></div></div>
+    </div></div>
+</header>

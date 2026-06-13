@@ -1,0 +1,26 @@
+<section id="why" style="max-width:1180px;margin:0 auto;padding:96px 32px;">
+  <div class="ox-eyebrow" style="margin-bottom:18px;">Why Otherix</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:48px;align-items:start;">
+    <div>
+      <h2 style="font-size:clamp(30px,3.6vw,42px);line-height:1.1;font-weight:700;letter-spacing:-1.2px;margin:0 0 18px;color:#eef1f2;">VMs aren&rsquo;t cattle.<br>They remember.</h2>
+      <p style="font-size:17px;line-height:1.68;color:#9aa4ab;margin:0;max-width:460px;">Container orchestrators assume workloads are disposable replicas. Virtual machines aren&rsquo;t &mdash; they&rsquo;re long-lived, stateful entities. Otherix borrows the Kubernetes control-plane pattern but drops the assumption that you can throw the disk away.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:26px;">
+      <div style="border-left:2px solid rgba(88,204,194,0.45);padding-left:18px;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#58ccc2;margin-bottom:7px;">disks &amp; identity</div>
+        <h3 style="font-size:18px;font-weight:600;margin:0 0 6px;color:#eef1f2;">Stable disks &amp; identities</h3>
+        <p style="font-size:15px;line-height:1.6;color:#9aa4ab;margin:0;">Disks persist across reboots, reschedules and migrations. Addresses and identities stay fixed. A VM is an addressable object, never a fungible replica.</p>
+      </div>
+      <div style="border-left:2px solid rgba(88,204,194,0.45);padding-left:18px;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#58ccc2;margin-bottom:7px;">declarative</div>
+        <h3 style="font-size:18px;font-weight:600;margin:0 0 6px;color:#eef1f2;">Declarative, reconciled</h3>
+        <p style="font-size:15px;line-height:1.6;color:#9aa4ab;margin:0;">A REST API with generation / observed-generation bookkeeping. Reconciliation loops converge the cluster to your declared spec &mdash; the Kubernetes pattern, minus the container assumptions.</p>
+      </div>
+      <div style="border-left:2px solid rgba(88,204,194,0.45);padding-left:18px;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#58ccc2;margin-bottom:7px;">migration</div>
+        <h3 style="font-size:18px;font-weight:600;margin:0 0 6px;color:#eef1f2;">Live migration, first-class</h3>
+        <p style="font-size:15px;line-height:1.6;color:#9aa4ab;margin:0;">Move a running VM with a single change. Memory and disk stream peer-to-peer between agents; the control plane stays out of the data path.</p>
+      </div>
+    </div>
+  </div>
+</section>

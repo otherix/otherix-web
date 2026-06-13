@@ -1,19 +1,31 @@
-<section id="quickstart">
-  <div class="wrap">
-    <h2>From zero to a running VM</h2>
-    <pre># 1. install the operator CLI
-curl -fsSL get.otherix.dev | OTHERIX_COMPONENT=cli sh
+<section id="quickstart" class="ox-section">
+  <div class="ox-wrap">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;">
+      <span class="ox-eyebrow">Quick start</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#e3c178;border:1px solid rgba(227,193,120,0.3);background:rgba(227,193,120,0.07);border-radius:9999px;padding:3px 10px;">early development</span>
+    </div>
+    <h2 class="ox-h2" style="margin-bottom:12px;max-width:620px;">From zero to a running VM</h2>
+    <p style="font-size:17px;line-height:1.64;color:#9aa4ab;margin:0 0 40px;max-width:580px;">Point the CLI at a cluster, enrol a node over mTLS, and boot a VM straight from an image URL &mdash; no template entity, no registry.</p>
 
-# 2. install the control plane on a Linux host
-curl -fsSL get.otherix.dev | OTHERIX_COMPONENT=api sudo -E sh
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px;">
+      <!-- commands -->
+      <div style="background:#16191c;border:1px solid rgba(180,190,196,0.14);border-radius:12px;overflow:hidden;">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 15px;border-bottom:1px solid rgba(180,190,196,0.08);">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#6c757c;">bash</span>
+          <button class="ox-copybtn" type="button" data-copy="#qs-cmds">copy</button>
+        </div>
+        <div id="qs-cmds" style="padding:18px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.9;white-space:pre;overflow-x:auto;"><div><span style="color:#5f6b72;"># 1 &middot; point the CLI at your cluster</span></div><div><span style="color:#58ccc2;">$</span> otherix config add cluster --name local \</div><div>    --server http://localhost:8080 \</div><div>    --login admin@otherix.local</div><div style="height:10px;"></div><div><span style="color:#5f6b72;"># 2 &middot; enrol a node &mdash; join-token bootstrap (mTLS)</span></div><div><span style="color:#58ccc2;">$</span> otherix node join-token create \</div><div>    --node-name node-1 --ttl 10m</div><div style="height:10px;"></div><div><span style="color:#5f6b72;"># 3 &middot; boot a VM straight from an image URL</span></div><div><span style="color:#58ccc2;">$</span> otherix vm create demo-vm \</div><div>    --image-url https://cloud-images.ubuntu.com/minimal/releases/noble/release/ubuntu-24.04-minimal-cloudimg-arm64.img \</div><div>    --arch arm64 --vcpus 2 --memory-mb 2048 --wait</div></div>
+      </div>
+      <!-- verify -->
+      <div style="background:#16191c;border:1px solid rgba(180,190,196,0.14);border-radius:12px;overflow:hidden;">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 15px;border-bottom:1px solid rgba(180,190,196,0.08);">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#6c757c;">output</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#82d99a;">running</span>
+        </div>
+        <div style="padding:18px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.9;white-space:pre;overflow-x:auto;"><div><span style="color:#58ccc2;">$</span> otherix vm list</div><div><span style="color:#5f6b72;">NAME     STATUS   POOL     IMAGE</span></div><div>demo-vm  <span style="color:#82d99a;">running</span>  default  ubuntu-24.04&hellip;img</div><div style="height:10px;"></div><div><span style="color:#58ccc2;">$</span> otherix vm console demo-vm</div><div><span style="color:#9aa4ab;">connected to demo-vm (serial console).</span></div><div><span style="color:#9aa4ab;">press </span><span style="color:#e3c178;">Ctrl+]</span><span style="color:#9aa4ab;"> to detach.</span></div></div>
+      </div></div>
 
-# 3. create your first VM from an image URL
-otherix vm create --image-url https://example.com/noble.qcow2 \
-  --arch amd64 --disk-gib 20</pre>
-    <p style="margin-top:1.5rem">
-      <a class="btn btn-ghost" href="{{ .Site.Params.docsURL }}get-started/quickstart/">
-        Full quickstart in the docs
-      </a>
-    </p>
-  </div>
+    <div style="margin-top:20px;font-size:14px;color:#6c757c;font-family:'IBM Plex Mono',monospace;">
+      Working from the repo? <span style="color:#9aa4ab;">make local-dev-start</span> brings up the whole stack &mdash; api-server with embedded etcd, an agent, and a configured CLI &mdash; in one command. Full walkthrough in the <a class="ox-doclink" href="{{ .Site.Params.docsURL }}get-started/quickstart/">docs</a>.
+    </div></div>
 </section>

@@ -1,0 +1,70 @@
+<section id="networking" class="ox-section ox-section--alt" style="position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(720px 380px at 86% 112%,rgba(34,211,238,0.07),transparent 60%);pointer-events:none;"></div>
+  <div class="ox-wrap" style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:56px;align-items:center;">
+    <!-- left -->
+    <div>
+      <div class="ox-eyebrow" style="margin-bottom:16px;">Networking</div>
+      <h2 class="ox-h2" style="margin-bottom:18px;max-width:520px;">A secure L2 fabric that follows your VMs</h2>
+      <p style="font-size:17px;line-height:1.66;color:#9aa4ab;margin:0 0 30px;max-width:500px;">Overlay networks give VMs on different hypervisors a single layer-2 segment &mdash; a VXLAN tunnel riding an encrypted WireGuard underlay mesh. Because the segment spans the whole cluster, a VM keeps its MAC and IP when it live-migrates, and open connections survive the move.</p>
+      <div style="display:flex;flex-direction:column;gap:22px;">
+        <div style="border-left:2px solid rgba(255,107,176,0.5);padding-left:18px;">
+          <h3 style="font-size:17px;font-weight:600;margin:0 0 5px;color:#eef1f2;">Cluster-wide L2 overlay</h3>
+          <p style="font-size:15px;line-height:1.58;color:#9aa4ab;margin:0;">VMs across nodes share one broadcast domain over VXLAN, isolated per VNI &mdash; no reliance on the physical fabric being flat.</p>
+        </div>
+        <div style="border-left:2px solid rgba(139,92,246,0.55);padding-left:18px;">
+          <h3 style="font-size:17px;font-weight:600;margin:0 0 5px;color:#eef1f2;">WireGuard-encrypted underlay</h3>
+          <p style="font-size:15px;line-height:1.58;color:#9aa4ab;margin:0;">Every inter-node frame rides an authenticated WireGuard mesh. The control plane recomputes the full peer set on each heartbeat &mdash; no agent-to-agent negotiation.</p>
+        </div>
+        <div style="border-left:2px solid rgba(34,211,238,0.55);padding-left:18px;">
+          <h3 style="font-size:17px;font-weight:600;margin:0 0 5px;color:#eef1f2;">Deterministic forwarding</h3>
+          <p style="font-size:15px;line-height:1.58;color:#9aa4ab;margin:0;">The control plane computes the forwarding database and hands it to agents on the heartbeat. VXLAN address learning is off, so the data plane never guesses.</p>
+        </div>
+      </div>
+    </div>
+    <!-- right: nested encapsulation stack -->
+    <div>
+      <div style="background:#16191c;border:1px solid rgba(180,190,196,0.16);border-radius:14px;padding:18px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6c757c;">encapsulation</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6c757c;">MTU</span>
+        </div>
+        <div style="border:1px solid rgba(180,190,196,0.2);border-radius:12px;padding:14px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9aa4ab;">physical underlay &middot; eth0</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6c757c;">1500</span>
+          </div>
+          <div style="border:1px solid rgba(139,92,246,0.5);background:rgba(139,92,246,0.05);border-radius:10px;padding:13px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:11px;gap:8px;flex-wrap:wrap;">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#b9a4f0;">WireGuard mesh &middot; otwg0 &middot; <span style="color:#cdb6ff;">encrypted</span></span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8b5cf6;">1440</span>
+            </div>
+            <div style="border:1px solid rgba(34,211,238,0.5);background:rgba(34,211,238,0.05);border-radius:9px;padding:13px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:11px;gap:8px;flex-wrap:wrap;">
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#7dd3e0;">VXLAN &middot; otvx1000 &middot; VNI 1000</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#22d3ee;">&mdash;</span>
+              </div>
+              <div style="border:1px solid rgba(255,107,176,0.45);background:rgba(255,107,176,0.06);border-radius:8px;padding:13px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;gap:8px;flex-wrap:wrap;">
+                  <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#ff9ccb;">VM frame &middot; 10.50.0.0/24</span>
+                  <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#ff6bb0;">1390</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div style="flex:1;background:#1e2327;border:1px solid rgba(255,107,176,0.4);border-radius:7px;padding:9px 11px;">
+                    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#eef1f2;">db-0</div>
+                    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9aa4ab;">10.50.0.7 &middot; node-1</div>
+                  </div>
+                  <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#22d3ee;">&#8644;</span>
+                  <div style="flex:1;background:#1e2327;border:1px dashed rgba(255,107,176,0.55);border-radius:7px;padding:9px 11px;">
+                    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#eef1f2;">app-1</div>
+                    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9aa4ab;">10.50.0.9 &middot; node-2</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;line-height:1.6;color:#6c757c;text-align:center;">one L2 segment across nodes &mdash; <span style="color:#9aa4ab;">IP preserved through live migration</span></div>
+      </div>
+    </div>
+  </div>
+</section>

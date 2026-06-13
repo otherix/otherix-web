@@ -1,27 +1,45 @@
-<section id="features">
-  <div class="wrap">
-    <h2>What makes it different</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Created from an image URL</h3>
-        <p>No template entity, no registry. The agent materializes the image
-           into a per-pool cache on first use.</p>
+<section id="features" class="ox-section">
+  <div class="ox-wrap">
+    <div class="ox-eyebrow" style="margin-bottom:16px;">Features</div>
+    <h2 class="ox-h2" style="margin-bottom:44px;max-width:620px;">A single binary, no external moving parts</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;">
+
+      <div class="ox-card">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#58ccc2;background:rgba(88,204,194,0.08);border:1px solid rgba(88,204,194,0.18);display:inline-block;padding:3px 9px;border-radius:6px;margin-bottom:16px;">embedded-etcd</div>
+        <h3 style="font-size:20px;font-weight:600;letter-spacing:-0.3px;margin:0 0 9px;color:#eef1f2;">Embedded etcd, no database</h3>
+        <p style="font-size:15px;line-height:1.62;color:#9aa4ab;margin:0;">Embedded etcd is the only datastore the api-server runs &mdash; no Postgres, no Redis, no external queue to deploy or back up.</p>
       </div>
-      <div class="card">
-        <h3>First-class live migration</h3>
-        <p>Peer-to-peer between agents, with the control plane out of the data
-           path.</p>
+
+      <div class="ox-card">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#58ccc2;background:rgba(88,204,194,0.08);border:1px solid rgba(88,204,194,0.18);display:inline-block;padding:3px 9px;border-radius:6px;margin-bottom:16px;">single-binary</div>
+        <h3 style="font-size:20px;font-weight:600;letter-spacing:-0.3px;margin:0 0 9px;color:#eef1f2;">Single-binary agents</h3>
+        <p style="font-size:15px;line-height:1.62;color:#9aa4ab;margin:0;">Each agent installs on a KVM/QEMU host as one static Go binary alongside qemu-system-*. It drives QEMU directly &mdash; no libvirt in the path.</p>
       </div>
-      <div class="card">
-        <h3>Explicit cluster resources</h3>
-        <p>Storage pools, networks, and firmwares are real resources - not
-           abstractions over a cloud provider.</p>
+
+      <div class="ox-card">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#58ccc2;background:rgba(88,204,194,0.08);border:1px solid rgba(88,204,194,0.18);display:inline-block;padding:3px 9px;border-radius:6px;margin-bottom:16px;">live-migration</div>
+        <h3 style="font-size:20px;font-weight:600;letter-spacing:-0.3px;margin:0 0 9px;color:#eef1f2;">Peer-to-peer live migration</h3>
+        <p style="font-size:15px;line-height:1.62;color:#9aa4ab;margin:0;">Running VMs move host-to-host directly between agents over mTLS. The control plane orchestrates the move; it never sits in the data path.</p>
       </div>
-      <div class="card">
-        <h3>One stateful service</h3>
-        <p>Embedded etcd is the only datastore. No Postgres, no Redis, no
-           message queue to operate.</p>
+
+      <div class="ox-card">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#58ccc2;background:rgba(88,204,194,0.08);border:1px solid rgba(88,204,194,0.18);display:inline-block;padding:3px 9px;border-radius:6px;margin-bottom:16px;">snapshots</div>
+        <h3 style="font-size:20px;font-weight:600;letter-spacing:-0.3px;margin:0 0 9px;color:#eef1f2;">Snapshots as a primitive</h3>
+        <p style="font-size:15px;line-height:1.62;color:#9aa4ab;margin:0;">VMs boot directly from an image URL; point-in-time snapshots are managed API objects, not a pile of shell scripts bolted on the side.</p>
       </div>
+
+      <div class="ox-card">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#58ccc2;background:rgba(88,204,194,0.08);border:1px solid rgba(88,204,194,0.18);display:inline-block;padding:3px 9px;border-radius:6px;margin-bottom:16px;">mTLS</div>
+        <h3 style="font-size:20px;font-weight:600;letter-spacing:-0.3px;margin:0 0 9px;color:#eef1f2;">mTLS end to end</h3>
+        <p style="font-size:15px;line-height:1.62;color:#9aa4ab;margin:0;">Every control-plane &harr; agent call is mutually authenticated. Agents join over mTLS and report observed state through signed heartbeats.</p>
+      </div>
+
+      <div class="ox-card">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#58ccc2;background:rgba(88,204,194,0.08);border:1px solid rgba(88,204,194,0.18);display:inline-block;padding:3px 9px;border-radius:6px;margin-bottom:16px;">self-clustering</div>
+        <h3 style="font-size:20px;font-weight:600;letter-spacing:-0.3px;margin:0 0 9px;color:#eef1f2;">HA by self-clustering etcd</h3>
+        <p style="font-size:15px;line-height:1.62;color:#9aa4ab;margin:0;">Run multiple api-server replicas; they form a single self-clustering etcd cluster and coordinate through it. No external quorum service to run.</p>
+      </div>
+
     </div>
   </div>
 </section>

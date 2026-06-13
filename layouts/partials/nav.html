@@ -1,0 +1,20 @@
+<nav style="position:sticky;top:0;z-index:50;background:rgba(30,35,39,0.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(180,190,196,0.1);">
+  <div class="ox-wrap" style="height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+    <a href="#top" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+      <img src="/img/mark-dark.svg" alt="Otherix" style="height:26px;width:auto;">
+      <span class="ox-mono" style="font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:600;letter-spacing:-0.2px;color:#eef1f2;">otherix</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;">
+      <a class="ox-navlink" href="#why">Why</a>
+      <a class="ox-navlink" href="#features">Features</a>
+      <a class="ox-navlink" href="#networking">Networking</a>
+      <a class="ox-navlink" href="#architecture">Architecture</a>
+      <a class="ox-navlink" href="#quickstart">Quick start</a>
+      <a class="ox-navlink" href="{{ .Site.Params.docsURL }}">Docs</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <a class="ox-btn ox-btn-ghost" href="{{ .Site.Params.githubURL }}" style="font-size:13px;padding:9px 16px;font-family:'IBM Plex Mono',monospace;">GitHub <span style="color:#6c757c;">&#8599;</span></a>
+      <a class="ox-btn ox-btn-primary" href="#quickstart" style="font-size:14px;padding:10px 17px;">Get started</a>
+    </div>
+  </div>
+</nav>

@@ -1,65 +1,72 @@
-<section id="comparison">
-  <div class="wrap">
-    <h2>How Otherix compares</h2>
-    <table>
-      <thead>
-        <tr><th>Capability</th><th>Otherix</th><th>Proxmox VE</th><th>OpenStack</th><th>Harvester</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>Model</th>
-          <td>Declarative desired/observed, Kubernetes-style reconciliation for VMs</td>
-          <td>Imperative cluster manager</td>
-          <td>Modular IaaS (many services)</td>
-          <td>HCI built on Kubernetes (KubeVirt)</td>
-        </tr>
-        <tr>
-          <th>Control-plane datastore</th>
-          <td>Embedded etcd, the only stateful service</td>
-          <td>Corosync + pmxcfs</td>
-          <td>SQL database + message queue</td>
-          <td>Kubernetes etcd + Longhorn</td>
-        </tr>
-        <tr>
-          <th>Hypervisor access</th>
-          <td>QEMU directly, no libvirt</td>
-          <td>QEMU/KVM</td>
-          <td>Nova via libvirt</td>
-          <td>KubeVirt (libvirt)</td>
-        </tr>
-        <tr>
-          <th>Live migration</th>
-          <td>Peer-to-peer, control plane out of the data path</td>
-          <td>Yes (cluster)</td>
-          <td>Yes</td>
-          <td>Yes (KubeVirt)</td>
-        </tr>
-        <tr>
-          <th>VM source</th>
-          <td>Image URL, no template entity</td>
-          <td>Templates / clones</td>
-          <td>Glance images</td>
-          <td>Images (URL / Longhorn)</td>
-        </tr>
-        <tr>
-          <th>Footprint</th>
-          <td>Single Go binary embeds etcd; no external DB</td>
-          <td>Per-node Debian + cluster stack</td>
-          <td>Heavy, multi-component</td>
-          <td>Full Kubernetes cluster</td>
-        </tr>
-        <tr>
-          <th>Operate &amp; debug</th>
-          <td>Single binary, one log stream, no external services to correlate; plain Go and direct QEMU - few moving parts to debug or repair</td>
-          <td>Per-node daemons plus Corosync quorum to keep healthy</td>
-          <td>Many services plus DB and message queue to correlate; deep operational expertise</td>
-          <td>Full Kubernetes plus KubeVirt and Longhorn to operate and debug</td>
-        </tr>
-      </tbody>
-    </table>
-    <p class="muted" style="margin-top:1rem;color:var(--muted);font-size:.9rem">
-      Reflects each project's typical default architecture as of 2026.
-      Capabilities, not endorsements.
-    </p>
+<section id="comparison" class="ox-section ox-section--alt">
+  <div class="ox-wrap">
+    <div class="ox-eyebrow" style="margin-bottom:16px;">Comparison</div>
+    <h2 class="ox-h2" style="margin-bottom:40px;max-width:620px;">How Otherix compares</h2>
+
+    <div style="overflow-x:auto;border:1px solid rgba(180,190,196,0.1);border-radius:12px;">
+      <table style="width:100%;min-width:820px;border-collapse:collapse;font-family:'IBM Plex Sans',sans-serif;">
+        <thead>
+          <tr>
+            <th style="text-align:left;padding:16px 18px;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:#5f6b72;border-bottom:1px solid rgba(180,190,196,0.14);">Capability</th>
+            <th style="text-align:left;padding:16px 18px;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;color:#58ccc2;background:rgba(88,204,194,0.08);border-bottom:1px solid rgba(88,204,194,0.3);">otherix</th>
+            <th style="text-align:left;padding:16px 18px;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;color:#cdd5da;border-bottom:1px solid rgba(180,190,196,0.14);">Proxmox VE</th>
+            <th style="text-align:left;padding:16px 18px;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;color:#cdd5da;border-bottom:1px solid rgba(180,190,196,0.14);">OpenStack</th>
+            <th style="text-align:left;padding:16px 18px;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;color:#cdd5da;border-bottom:1px solid rgba(180,190,196,0.14);">Harvester</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th style="text-align:left;vertical-align:top;padding:15px 18px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#9aa4ab;white-space:nowrap;border-bottom:1px solid rgba(180,190,196,0.07);">Model</th>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#e8ebec;background:rgba(88,204,194,0.05);border-bottom:1px solid rgba(180,190,196,0.07);">Declarative desired/observed, Kubernetes-style reconciliation for VMs</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Imperative cluster manager</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Modular IaaS (many services)</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">HCI built on Kubernetes (KubeVirt)</td>
+          </tr>
+          <tr>
+            <th style="text-align:left;vertical-align:top;padding:15px 18px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#9aa4ab;white-space:nowrap;border-bottom:1px solid rgba(180,190,196,0.07);">Control-plane datastore</th>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#e8ebec;background:rgba(88,204,194,0.05);border-bottom:1px solid rgba(180,190,196,0.07);">Embedded etcd, the only stateful service</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Corosync + pmxcfs</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">SQL database + message queue</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Kubernetes etcd + Longhorn</td>
+          </tr>
+          <tr>
+            <th style="text-align:left;vertical-align:top;padding:15px 18px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#9aa4ab;white-space:nowrap;border-bottom:1px solid rgba(180,190,196,0.07);">Hypervisor access</th>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#e8ebec;background:rgba(88,204,194,0.05);border-bottom:1px solid rgba(180,190,196,0.07);">QEMU directly, no libvirt</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">QEMU/KVM</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Nova via libvirt</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">KubeVirt (libvirt)</td>
+          </tr>
+          <tr>
+            <th style="text-align:left;vertical-align:top;padding:15px 18px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#9aa4ab;white-space:nowrap;border-bottom:1px solid rgba(180,190,196,0.07);">Live migration</th>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#e8ebec;background:rgba(88,204,194,0.05);border-bottom:1px solid rgba(180,190,196,0.07);">Peer-to-peer, control plane out of the data path</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Yes (cluster)</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Yes</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Yes (KubeVirt)</td>
+          </tr>
+          <tr>
+            <th style="text-align:left;vertical-align:top;padding:15px 18px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#9aa4ab;white-space:nowrap;border-bottom:1px solid rgba(180,190,196,0.07);">VM source</th>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#e8ebec;background:rgba(88,204,194,0.05);border-bottom:1px solid rgba(180,190,196,0.07);">Image URL, no template entity</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Templates / clones</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Glance images</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Images (URL / Longhorn)</td>
+          </tr>
+          <tr>
+            <th style="text-align:left;vertical-align:top;padding:15px 18px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#9aa4ab;white-space:nowrap;border-bottom:1px solid rgba(180,190,196,0.07);">Footprint</th>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#e8ebec;background:rgba(88,204,194,0.05);border-bottom:1px solid rgba(180,190,196,0.07);">Single Go binary embeds etcd; no external DB</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Per-node Debian + cluster stack</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Heavy, multi-component</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Full Kubernetes cluster</td>
+          </tr>
+          <tr>
+            <th style="text-align:left;vertical-align:top;padding:15px 18px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#9aa4ab;white-space:nowrap;">Operate &amp; debug</th>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#e8ebec;background:rgba(88,204,194,0.05);">Single binary, one log stream, no external services to correlate; plain Go and direct QEMU &mdash; few moving parts to debug or repair</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;">Per-node daemons plus Corosync quorum to keep healthy</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;">Many services plus DB and message queue to correlate; deep operational expertise</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;">Full Kubernetes plus KubeVirt and Longhorn to operate and debug</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px;color:#5f6b72;margin:18px 0 0;font-family:'IBM Plex Mono',monospace;">Reflects each project&rsquo;s typical default architecture as of 2026. Capabilities, not endorsements.</p>
   </div>
 </section>

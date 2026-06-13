@@ -5,9 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ .Title }}</title>
     <meta name="description" content="{{ .Site.Params.description }}">
+    <meta name="theme-color" content="#1e2327">
+    <meta property="og:title" content="{{ .Title }}">
+    <meta property="og:description" content="{{ .Site.Params.description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/img/banner-dark.svg">
     <link rel="stylesheet" href="/css/site.css">
   </head>
   <body>
+    {{ partial "nav.html" . }}
     <main>
       {{ block "main" . }}{{ end }}
     </main>

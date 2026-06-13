@@ -1,10 +1,37 @@
-<footer>
-  <div class="wrap">
-    <span>Otherix - Apache-2.0. Copyright 2026 Andrei Taranik.</span>
-    <span>
-      <a href="{{ .Site.Params.docsURL }}">Docs</a> -
-      <a href="{{ .Site.Params.githubURL }}">GitHub</a> -
-      <a href="https://get.otherix.dev">Install</a>
-    </span>
+<footer style="border-top:1px solid rgba(180,190,196,0.1);background:#1b1f23;">
+  <div class="ox-wrap" style="padding-top:64px;padding-bottom:40px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin-bottom:48px;">
+      <div>
+        <img src="/img/banner-dark.svg" alt="Otherix — self-hosted KVM/QEMU orchestration" style="width:100%;max-width:248px;height:auto;">
+      </div>
+      <div>
+        <div class="ox-mono" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#5f6b72;margin-bottom:16px;">Project</div>
+        <div style="display:flex;flex-direction:column;gap:11px;">
+          <a class="ox-navlink" href="{{ .Site.Params.githubURL }}">GitHub</a>
+          <a class="ox-navlink" href="{{ .Site.Params.githubURL }}/blob/main/CONTRIBUTING.md">Contributing</a>
+          <a class="ox-navlink" href="{{ .Site.Params.githubURL }}/issues">Issues</a>
+        </div>
+      </div>
+      <div>
+        <div class="ox-mono" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#5f6b72;margin-bottom:16px;">Docs</div>
+        <div style="display:flex;flex-direction:column;gap:11px;">
+          <a class="ox-navlink" href="{{ .Site.Params.docsURL }}get-started/quickstart/">Quickstart</a>
+          <a class="ox-navlink" href="{{ .Site.Params.docsURL }}architecture/">Architecture</a>
+          <a class="ox-navlink" href="{{ .Site.Params.docsURL }}reference/cli/">CLI reference</a>
+          <a class="ox-navlink" href="{{ .Site.Params.docsURL }}reference/api/">REST API</a>
+        </div>
+      </div>
+      <div>
+        <div class="ox-mono" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#5f6b72;margin-bottom:16px;">License</div>
+        <div style="display:flex;flex-direction:column;gap:11px;">
+          <a class="ox-navlink" href="{{ .Site.Params.githubURL }}/blob/main/LICENSE">Apache 2.0</a>
+          <span style="font-size:14px;color:#9aa4ab;">Go &middot; QEMU &middot; etcd</span>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(180,190,196,0.08);padding-top:24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+      <span class="ox-mono" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5f6b72;">Apache 2.0 &middot; &copy; 2026 Andrei Taranik</span>
+      <span class="ox-mono" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5f6b72;">no libvirt &middot; no external database</span>
+    </div>
   </div>
 </footer>
