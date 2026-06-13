@@ -1,5 +1,5 @@
 baseURL = "https://otherix.dev/"
-languageCode = "en-us"
+locale = "en-us"
 title = "Otherix"
 enableRobotsTXT = true
 
