@@ -1,0 +1,7 @@
+name = "otherix-get"
+main = "src/index.js"
+compatibility_date = "2026-06-01"
+
+# get.otherix.dev is attached as a custom domain in Phase 3 (the runbook).
+# routes are managed there rather than hard-coded, so this file stays
+# account-agnostic and committable.
