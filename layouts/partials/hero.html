@@ -1,1 +1,20 @@
-<!-- hero placeholder -->
+<section id="hero">
+  <div class="wrap">
+    <img class="brand-light" src="/img/banner-light.svg" alt="Otherix" width="640" height="240">
+    <img class="brand-dark" src="/img/banner-dark.svg" alt="Otherix" width="640" height="240">
+    <p style="font-size:1.25rem;max-width:680px;color:var(--muted)">
+      {{ .Site.Params.description }} Run VMs on a fleet of bare-metal KVM/QEMU
+      nodes with a declarative API, generation/observed-generation bookkeeping,
+      and reconciliation loops - the Kubernetes pattern applied to long-lived,
+      stateful VMs.
+    </p>
+    <div class="copyrow">
+      <pre>{{ .Site.Params.installCmd }}</pre>
+      <button type="button" data-copy>copy</button>
+    </div>
+    <p style="margin-top:1.5rem">
+      <a class="btn btn-primary" href="{{ .Site.Params.docsURL }}">Read the docs</a>
+      <a class="btn btn-ghost" href="{{ .Site.Params.githubURL }}">GitHub</a>
+    </p>
+  </div>
+</section>
