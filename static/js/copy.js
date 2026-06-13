@@ -1,13 +1,16 @@
-// Copy-to-clipboard for any [data-copy] button; target text comes from the
-// preceding <pre>. No framework, no dependencies.
-document.querySelectorAll("button[data-copy]").forEach(function (btn) {
-  btn.addEventListener("click", function () {
-    var pre = btn.parentElement.querySelector("pre");
-    if (!pre) return;
-    navigator.clipboard.writeText(pre.innerText.trim()).then(function () {
-      var prev = btn.textContent;
-      btn.textContent = "copied";
-      setTimeout(function () { btn.textContent = prev; }, 1500);
+// Tiny copy-to-clipboard helper. A [data-copy] button copies the text of the
+// element matched by its data-copy CSS selector (e.g. data-copy="#install-cmd").
+(function () {
+  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var sel = btn.getAttribute('data-copy');
+      var el = sel ? document.querySelector(sel) : null;
+      var text = el ? el.innerText : '';
+      navigator.clipboard.writeText(text).then(function () {
+        var prev = btn.textContent;
+        btn.textContent = 'copied \u2713';
+        setTimeout(function () { btn.textContent = prev; }, 1300);
+      }).catch(function () {});
     });
   });
-});
+})();
