@@ -1,0 +1,16 @@
+baseURL = "https://otherix.dev/"
+languageCode = "en-us"
+title = "Otherix"
+enableRobotsTXT = true
+
+# Single landing page: no taxonomies, terms, or RSS.
+disableKinds = ["taxonomy", "term", "RSS"]
+
+[params]
+  description = "Open-source, self-hosted control plane for VMs on KVM/QEMU clusters."
+  docsURL = "https://docs.otherix.dev/"
+  githubURL = "https://github.com/otherix/otherix"
+  installCmd = "curl -fsSL get.otherix.dev | OTHERIX_COMPONENT=cli sh"
+
+[markup.goldmark.renderer]
+  unsafe = true
