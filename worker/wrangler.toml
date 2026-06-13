@@ -2,6 +2,10 @@ name = "otherix-get"
 main = "src/index.js"
 compatibility_date = "2026-06-01"
 
-# get.otherix.dev is attached as a custom domain in Phase 3 (the runbook).
-# routes are managed there rather than hard-coded, so this file stays
-# account-agnostic and committable.
+# get.otherix.dev is bound to this worker as a Custom Domain. On deploy,
+# wrangler provisions the DNS record and TLS cert in the otherix.dev zone
+# (which must live in the same Cloudflare account the deploy token is scoped
+# to). custom_domain=true gives a dedicated hostname, not a path Route.
+routes = [
+  { pattern = "get.otherix.dev", custom_domain = true },
+]
