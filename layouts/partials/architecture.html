@@ -1,1 +1,13 @@
-<!-- architecture placeholder -->
+<section id="architecture">
+  <div class="wrap">
+    <h2>How it fits together</h2>
+    <p style="max-width:680px;color:var(--muted)">
+      The control plane keeps desired state in an embedded etcd member. Agents
+      on each node report observed state over mTLS and drive QEMU directly.
+      Live migration runs peer-to-peer; the control plane stays out of the data
+      path.
+    </p>
+    <img src="/img/architecture.svg" alt="Otherix architecture diagram"
+         style="max-width:760px;width:100%;height:auto;margin-top:1.5rem">
+  </div>
+</section>
