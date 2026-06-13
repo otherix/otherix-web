@@ -1,1 +1,19 @@
-<!-- quickstart placeholder -->
+<section id="quickstart">
+  <div class="wrap">
+    <h2>From zero to a running VM</h2>
+    <pre># 1. install the operator CLI
+curl -fsSL get.otherix.dev | OTHERIX_COMPONENT=cli sh
+
+# 2. install the control plane on a Linux host
+curl -fsSL get.otherix.dev | OTHERIX_COMPONENT=api sudo -E sh
+
+# 3. create your first VM from an image URL
+otherix vm create --image-url https://example.com/noble.qcow2 \
+  --arch amd64 --disk-gib 20</pre>
+    <p style="margin-top:1.5rem">
+      <a class="btn btn-ghost" href="{{ .Site.Params.docsURL }}get-started/quickstart/">
+        Full quickstart in the docs
+      </a>
+    </p>
+  </div>
+</section>
