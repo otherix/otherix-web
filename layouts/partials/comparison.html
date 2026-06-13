@@ -48,6 +48,13 @@
           <td>Heavy, multi-component</td>
           <td>Full Kubernetes cluster</td>
         </tr>
+        <tr>
+          <th>Operate &amp; debug</th>
+          <td>Single binary, one log stream, no external services to correlate; plain Go and direct QEMU - few moving parts to debug or repair</td>
+          <td>Per-node daemons plus Corosync quorum to keep healthy</td>
+          <td>Many services plus DB and message queue to correlate; deep operational expertise</td>
+          <td>Full Kubernetes plus KubeVirt and Longhorn to operate and debug</td>
+        </tr>
       </tbody>
     </table>
     <p class="muted" style="margin-top:1rem;color:var(--muted);font-size:.9rem">
