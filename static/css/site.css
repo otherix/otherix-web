@@ -80,3 +80,15 @@ img { display: block; }
 
 .ox-doclink { color: #58ccc2; text-decoration: none; }
 .ox-doclink:hover { text-decoration: underline; }
+
+/* ---- Responsive: keep the sticky nav to a single 64px row ---------------- */
+/* The nav row is a fixed 64px; without these the six in-page anchor links wrap
+   onto a second line and spill over the hero below. On narrow viewports drop
+   the anchor links (same-page jumps; the footer carries the real destinations)
+   and keep the logo plus the primary CTA. */
+@media (max-width: 800px) {
+  .ox-nav .ox-navlink { display: none; }
+}
+@media (max-width: 480px) {
+  .ox-nav .ox-btn-ghost { display: none; }   /* phones: logo + "Get started" only */
+}
