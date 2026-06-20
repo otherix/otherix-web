@@ -24,8 +24,14 @@
 
       <div class="ox-card">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#58ccc2;background:rgba(88,204,194,0.08);border:1px solid rgba(88,204,194,0.18);display:inline-block;padding:3px 9px;border-radius:6px;margin-bottom:16px;">snapshots</div>
-        <h3 style="font-size:20px;font-weight:600;letter-spacing:-0.3px;margin:0 0 9px;color:#eef1f2;">Snapshots as a primitive</h3>
-        <p style="font-size:15px;line-height:1.62;color:#9aa4ab;margin:0;">VMs boot directly from an image URL; point-in-time snapshots are managed API objects, not a pile of shell scripts bolted on the side.</p>
+        <h3 style="font-size:20px;font-weight:600;letter-spacing:-0.3px;margin:0 0 9px;color:#eef1f2;">Replicated, self-healing snapshots</h3>
+        <p style="font-size:15px;line-height:1.62;color:#9aa4ab;margin:0;">Point-in-time snapshots are standalone, content-addressed API objects &mdash; not shell scripts bolted on the side. Recreate a VM from one on <em>any</em> node (the disk is pulled peer-to-peer), set a replication factor to keep N copies across the cluster, and let it re-replicate after a node loss. Orphaned blobs are reclaimed automatically and bit-rot is scrubbed and re-replicated &mdash; durability is measured from what's actually on disk, never assumed.</p>
+      </div>
+
+      <div class="ox-card">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#58ccc2;background:rgba(88,204,194,0.08);border:1px solid rgba(88,204,194,0.18);display:inline-block;padding:3px 9px;border-radius:6px;margin-bottom:16px;">images</div>
+        <h3 style="font-size:20px;font-weight:600;letter-spacing:-0.3px;margin:0 0 9px;color:#eef1f2;">Boot from a URL, cached cluster-wide</h3>
+        <p style="font-size:15px;line-height:1.62;color:#9aa4ab;margin:0;">VMs boot straight from an image URL &mdash; no template object, no registry to run. Each node caches images content-addressed by digest, and a cached image is pulled peer-to-peer between nodes instead of re-downloaded, so the slow origin fetch happens about once per cluster. Pin exact bytes with a digest, or follow a rolling tag with a Kubernetes-style <code style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#cdb6ff;">imagePullPolicy</code>.</p>
       </div>
 
       <div class="ox-card">
