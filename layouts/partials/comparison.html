@@ -38,10 +38,17 @@
           </tr>
           <tr>
             <th style="text-align:left;vertical-align:top;padding:15px 18px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#9aa4ab;white-space:nowrap;border-bottom:1px solid rgba(180,190,196,0.07);">Live migration</th>
-            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#e8ebec;background:rgba(88,204,194,0.05);border-bottom:1px solid rgba(180,190,196,0.07);">Peer-to-peer, control plane out of the data path (planned)</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#e8ebec;background:rgba(88,204,194,0.05);border-bottom:1px solid rgba(180,190,196,0.07);">Peer-to-peer between agents; the control plane orchestrates but is never in the data path &mdash; the guest&rsquo;s network identity and live <code style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#cdb6ff;">logs -f</code> follow the move</td>
             <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Yes (cluster)</td>
             <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Yes</td>
             <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Yes (KubeVirt)</td>
+          </tr>
+          <tr>
+            <th style="text-align:left;vertical-align:top;padding:15px 18px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#9aa4ab;white-space:nowrap;border-bottom:1px solid rgba(180,190,196,0.07);">Snapshots &amp; durability</th>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#e8ebec;background:rgba(88,204,194,0.05);border-bottom:1px solid rgba(180,190,196,0.07);">Standalone content-addressed snapshots; cross-node replication, automatic reclamation and self-healing brokered by the control plane &mdash; no external storage system required</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">VM snapshots; ZFS / storage-level replication, PBS backups</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Cinder volume snapshots &amp; backups</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Longhorn volume snapshots, backups &amp; replicas</td>
           </tr>
           <tr>
             <th style="text-align:left;vertical-align:top;padding:15px 18px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#9aa4ab;white-space:nowrap;border-bottom:1px solid rgba(180,190,196,0.07);">VM source</th>
@@ -49,6 +56,13 @@
             <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Templates / clones</td>
             <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Glance images</td>
             <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Images (URL / Longhorn)</td>
+          </tr>
+          <tr>
+            <th style="text-align:left;vertical-align:top;padding:15px 18px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#9aa4ab;white-space:nowrap;border-bottom:1px solid rgba(180,190,196,0.07);">Image distribution</th>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#e8ebec;background:rgba(88,204,194,0.05);border-bottom:1px solid rgba(180,190,196,0.07);">Content-addressed node cache; images pulled peer-to-peer between nodes, Kubernetes-style <code style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#cdb6ff;">imagePullPolicy</code> &mdash; no registry or import service</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Templates / clones on shared or local storage</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Glance image service</td>
+            <td style="vertical-align:top;padding:15px 18px;font-size:14px;line-height:1.5;color:#9aa4ab;border-bottom:1px solid rgba(180,190,196,0.07);">Images via URL / Longhorn</td>
           </tr>
           <tr>
             <th style="text-align:left;vertical-align:top;padding:15px 18px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#9aa4ab;white-space:nowrap;border-bottom:1px solid rgba(180,190,196,0.07);">Footprint</th>
