@@ -10,14 +10,21 @@
     <meta property="og:description" content="{{ .Site.Params.description }}">
     <meta property="og:type" content="website">
     <meta property="og:image" content="/img/banner-dark.svg">
+    {{/* Mark the document JS-capable before first paint, so the reveal
+         hide-state in site.css applies only when JS can undo it: no FOUC,
+         and a no-JS visitor still sees the full page. */}}
+    <script>document.documentElement.className = "js";</script>
     <link rel="stylesheet" href="/css/site.css">
   </head>
   <body>
+    <div class="ox-atmos" aria-hidden="true"><div class="ox-atmos__grain"></div></div>
+    <div class="ox-scrollbar" id="ox-scrollbar" aria-hidden="true"></div>
     {{ partial "nav.html" . }}
     <main>
       {{ block "main" . }}{{ end }}
     </main>
     {{ partial "footer.html" . }}
     <script src="/js/copy.js" defer></script>
+    <script src="/js/reveal.js" defer></script>
   </body>
 </html>
