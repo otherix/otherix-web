@@ -5,6 +5,7 @@ const DOCS = "https://docs.otherix.dev";
 
 function upstreamFor(pathname) {
   if (pathname === "/quickstart.sh") return `${DOCS}/quickstart.sh`;
+  if (pathname === "/uninstall.sh") return `${DOCS}/uninstall.sh`;
   // Root and anything else fall through to the component installer.
   return `${DOCS}/install.sh`;
 }
